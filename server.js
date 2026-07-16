@@ -11,13 +11,20 @@ const supabase = require("./services/supabase");
 // 2. INISIALISASI EXPRESS APP (APP LAHIR DI SINI)
 const app = express();
 
-// 3. MIDDLEWARE
-app.use(cors());
+// 3. MIDDLEWARE (PENGATURAN CORS BARU)
+const corsOptions = {
+  origin: [
+    'http://localhost:5500', 
+    'http://127.0.0.1:5500', 
+    'https://https://smart-trash-dashboard.netlify.app' // <--- GANTI DENGAN LINK NETLIFY ASLI KAMU (tanpa garis miring di akhir)
+  ]
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // 4. DAFTARKAN ROUTES
 app.use("/api/trash", trashRoutes);
-app.use("/api/auth", authRoutes); // <-- Aman karena diletakkan setelah "const app = express();"
+app.use("/api/auth", authRoutes); 
 
 // 5. ROOT ENDPOINT
 app.get("/", async (req, res) => {
@@ -34,5 +41,5 @@ app.get("/", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Server berjalan di http://localhost:${PORT}`);
+  console.log(`Server berjalan di port ${PORT}`);
 });
