@@ -19,7 +19,7 @@ const corsOptions = {
     'https://smart-trash-dashboard.netlify.app' // <--- GANTI DENGAN LINK NETLIFY ASLI KAMU (tanpa garis miring di akhir)
   ]
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // 4. DAFTARKAN ROUTES
