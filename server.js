@@ -16,7 +16,7 @@ const corsOptions = {
   origin: [
     'http://localhost:5500', 
     'http://127.0.0.1:5500', 
-    'https://https://smart-trash-dashboard.netlify.app' // <--- GANTI DENGAN LINK NETLIFY ASLI KAMU (tanpa garis miring di akhir)
+    'https://smart-trash-dashboard.netlify.app' // <--- GANTI DENGAN LINK NETLIFY ASLI KAMU (tanpa garis miring di akhir)
   ]
 };
 app.use(cors(corsOptions));
